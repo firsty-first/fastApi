@@ -14,9 +14,9 @@ def count_plastic_from_image(image_path):
     return count
 
 
-@app.post("/")
-def home():
-    return "welcome to fast api"
+# @app.post("/")
+# def home():
+#     return "welcome to fast api"
 
 @app.post("/count_plastic/")
 async def count_plastic(file: UploadFile):

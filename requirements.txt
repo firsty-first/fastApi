@@ -1,5 +1,5 @@
 ultralytics==8.0.139
 fastapi==0.100.0
-uvicorn==0.23.1
+uvicorn
 onnx==1.14.0
 numpy==1.23.0

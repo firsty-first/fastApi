@@ -3,3 +3,4 @@ fastapi==0.100.0
 uvicorn
 onnx==1.14.0
 numpy
+python-multipart

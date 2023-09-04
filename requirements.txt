@@ -4,3 +4,6 @@ uvicorn
 onnx==1.14.0
 numpy
 python-multipart
+requests
+Pillow
+pydantic

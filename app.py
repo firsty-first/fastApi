@@ -1,4 +1,7 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File,HTTPException
+from urllib import request
+from io import BytesIO
+from PIL import Image
 from ultralytics import YOLO
 import os
 app = FastAPI()
@@ -12,6 +15,33 @@ def count_plastic_from_image(image_path):
     load = model.predict(image_path, save=True, imgsz=1024, conf=0.204)
     count = len(load[0])
     return count
+def count_plastic_from_image_uri(image_uri):
+    try:
+        # Download the image from the provided URI
+        response = request.urlopen(image_uri)
+        image_data = response.read()
+
+        # Open the downloaded image using PIL (Python Imaging Library)
+        image = Image.open(BytesIO(image_data))
+        
+        # Convert the image to a format that the YOLO model can process
+        img_array = np.array(image)
+        
+        # Perform object detection on the image
+        load = model.predict(img_array, save=True, imgsz=1024, conf=0.204)
+        count = len(load[0])
+        return count
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+@app.post("/count_plastic_uri/")
+async def count_plastic_uri(image_uri: str):
+    try:
+        # Perform object detection using your local method
+        count = count_plastic_from_image_uri(image_uri)
+
+        return {"count": count}
+    except Exception as e:
+        return {"error": str(e)}
 
 
 # @app.post("/")

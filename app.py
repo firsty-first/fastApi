@@ -10,6 +10,10 @@ app = FastAPI()
 # Example: from yolo_module import YOLO
 model = YOLO('Finalmodel.onnx', task='detect')
 
+@app.get("/hello")
+async def hello():
+    return {"message": "Hello, FastAPI!"}
+
 def count_plastic_from_image(image_path):
     # Perform object detection on the image
     load = model.predict(image_path, save=True, imgsz=1024, conf=0.204)

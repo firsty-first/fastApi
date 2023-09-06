@@ -45,4 +45,6 @@ def getPrediction(input_parameters : model_input):
     imgUrl = str(input_dictionary['imgUrl'])
 
     prediction = count_plastic_from_image(imgUrl)
-    return "Total number of plastic in the image is: ".format(prediction)
+    # return "Total number of plastic in the image is: ".format(prediction)
+    return f"Total number of plastic in the image is: {prediction}"
+

@@ -31,7 +31,7 @@ def count_plastic_from_image(image_path):
 class model_input(BaseModel):
     imgUrl : str
 
-model = YOLO('Finalmodel.onnx', task='detect')
+
 
 @app.get('/')
 def main():

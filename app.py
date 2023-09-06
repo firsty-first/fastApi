@@ -18,6 +18,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+model = YOLO('Finalmodel.onnx', task='detect')
 
 def count_plastic_from_image(image_path):
     img =Image.open(BytesIO(requests.get(image_path).content))

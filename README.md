@@ -1,2 +1,7 @@
 # fastApi
-for uri input:  https://uriii.onrender.com/count_plastic_uri/
+Get request:
+https://plasticapi.onrender.com
+prediction endpoint 
+Post request:
+https://plasticapi.onrender.com/prediction 
+Note:input format is url

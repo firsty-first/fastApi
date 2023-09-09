@@ -35,7 +35,7 @@ class model_input(BaseModel):
 
 @app.get('/')
 def main():
-    return {'message': 'Welcome to Render Fast Api'}
+    return {'message': 'Welcome Fast Api'}
 
 @app.post('/prediction')
 def getPrediction(input_parameters : model_input):
